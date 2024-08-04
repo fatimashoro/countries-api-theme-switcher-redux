@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import SearchInput from './SearchInput'
 import DropDownMenu from './DropDownMenu'
 import { CountryCard } from './CountryCard'
-import data from '../data.json'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAPIData } from '../Redux/Features/countriesSlice';
 
@@ -16,8 +15,8 @@ export const Home = () => {
     // )) : allCountries
 
     useEffect(() => {
-        dispatch(getAPIData(data));
-    }, [dispatch, data])
+        dispatch(getAPIData());
+    }, [dispatch])
 
 
     return (

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { switchTheme, systemBasedThemeChange } from '../Redux/Features/themeSwitcher';
+import themeSwitcher, { switchTheme, systemBasedThemeChange } from '../Redux/Features/themeSwitcher';
+import { eventWrapper } from '@testing-library/user-event/dist/utils';
 
 
 
@@ -37,6 +38,13 @@ export const Navbar = () => {
   }, [isDarkThemeDark])
 
   //const getTheme = localStorage.theme 
+
+
+
+
+
+
+
 
   return (
     <div className=' dark:bg-gray-700 dark:border-gray-600 shadow-sm flex justify-between sm:px-20 px-4 py-6 '>

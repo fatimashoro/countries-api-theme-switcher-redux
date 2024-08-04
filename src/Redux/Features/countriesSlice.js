@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import data from '../../data.json'  
 const initialState = {
     value: [],
     allCountries: []
@@ -11,8 +11,8 @@ export const countriesSlice = createSlice({
     initialState,
     reducers: {
         getAPIData: (state, action) => {
-            state.value = action.payload;
-            state.allCountries = action.payload;
+            state.value = data;
+            state.allCountries = data;
         },
         searchByName: (state, action) => {
             state.value = state.allCountries.filter((filterItem) => (

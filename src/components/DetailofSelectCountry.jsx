@@ -56,6 +56,7 @@ const DetailofSelectCountry = () => {
               <p>Franch</p>
             </div>
           </div> */}
+        
 
         </div>
       </div>
