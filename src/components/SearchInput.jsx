@@ -1,15 +1,21 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { searchByName } from '../Redux/Features/countriesSlice';
+import {fetchDATAbyNAme,clearSearch} from '../Redux/Features/searchCountrybyName';
 
 const SearchInput = () => {
   //const [searchText, setSearchText] = useState("");
+ 
   const dispatch = useDispatch();
-
 
   const handleChangeevent = (e) => {
     const value = e.target.value.trim()
-    dispatch(searchByName(value))
+    if(value){
+      dispatch(fetchDATAbyNAme(value))
+    }
+    else{
+      dispatch(clearSearch())
+    }
+   
   }
 
   return (

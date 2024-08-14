@@ -10,9 +10,9 @@ const DetailofSelectCountry = () => {
     <div className='sm:py-16 sm:px-14 pl-14  py-10 dark:bg-darkbgColor'>
       <button className='border text-black dark:text-white py-2 text-xl font-light dark:bg-gray-700 dark:border-gray-600 px-12 rounded items-center' onClick={() => navigate('/')}> Back</button>
       <div className='outer md:flex pt-16 '>
-        <img className='sm:w-[70%] md:w-[35%] w-[90%]  pb-10 rounded-lg ' src={details.flag} alt='image of flag' />
+        <img className='sm:w-[70%] md:w-[35%] w-[90%]  pb-10 rounded-lg ' src={details.flags && details.flags.png} alt='image of flag' />
         <div className='inner md:pl-16 lg:pl-40 pl-0 flex flex-col justify-center'>
-          <h1 className='font-bold md:text-2xl text-xl pb-6 dark:text-white'>{details.name}</h1>
+          <h1 className='font-bold md:text-2xl text-xl pb-6 dark:text-white'>{details.name && details.name.common}</h1>
           <div className='md:flex dark:text-white'>
             <div className='firstDiv space-y-2 mb-10 '>
               <div>
@@ -37,15 +37,29 @@ const DetailofSelectCountry = () => {
                 <span className='font-semibold'>Top Level Domain:</span> <span>{details.topLevelDomain}</span>
               </div>
               <div>
-                <span className='font-semibold'>Currencies:</span> <span>{details.currencies && details.currencies[0].code}</span>
+                <span className='font-semibold'>Currencies:</span> <span>{details.currencies && details.currencies[Object.keys(details.currencies)[0]].name}</span>
               </div>
               <div>
-                <span className='font-semibold'>Languages:</span> <span>{details.languages && details.languages.map((lang, index) => {
-                  return <>
-                    <span key={index} className='mr-2'>{lang.name}{index < details.languages.length - 1 && ','}</span>
-                  </>
-                })}</span>
+                <span className='font-semibold'>Languages:</span>{
+                  (details.languages && Object.keys(details.languages).length > 1) ?
+                    Object.keys(details.languages).map((key, index) => {
+                      return <>
+                        <span>{details.languages[key]}</span>
+                        {index < Object.keys(details.languages).length - 1 && ','}
+                      </>
+                    })
+                    :
+                    <>
+                      {
+                       details.languages && Object.keys(details.languages).map((key, index) => {
+                          return <span>{details.languages[key]}</span>
+                        })
+                      }
+                    </>
+                }
               </div>
+
+
             </div>
           </div>
           {/* <div className='3rdDiv'>
@@ -56,7 +70,7 @@ const DetailofSelectCountry = () => {
               <p>Franch</p>
             </div>
           </div> */}
-        
+
 
         </div>
       </div>

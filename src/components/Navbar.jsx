@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import themeSwitcher, { switchTheme, systemBasedThemeChange } from '../Redux/Features/themeSwitcher';
-import { eventWrapper } from '@testing-library/user-event/dist/utils';
-
+import  { switchTheme, systemBasedThemeChange } from '../Redux/Features/themeSwitcher';
 
 
 export const Navbar = () => {
